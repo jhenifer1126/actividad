@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Spatie\LaravelIgnition\Solutions\SolutionProviders\RunningLaravelDuskInProductionProvider;
 
 class ProductoController extends Controller
 {
@@ -14,7 +15,7 @@ class ProductoController extends Controller
     public function index()
     {
         $Productos = Producto::all();
-        return view(('home'),compact('Productos'));
+        return view(('productos.index'),compact('Productos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('form');
+        return view('home');
     }
 
     /**
