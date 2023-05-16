@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
-use Spatie\LaravelIgnition\Solutions\SolutionProviders\RunningLaravelDuskInProductionProvider;
+
 
 class ProductoController extends Controller
 {
@@ -14,8 +14,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $Productos = Producto::all();
-        return view(('productos.index'),compact('Productos'));
+       $Productos = Producto::all();
+        return view(('home'),compact('Productos'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('home');
+        return view('form');
     }
 
     /**
@@ -37,7 +37,6 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $Productos = new Producto();
-
         $Productos -> Nombre = $request->input('Nombre');
         $Productos -> Precio = $request->input('Precio');
         $Productos -> Cantidadl = $request->input('Cantidadl');
@@ -63,9 +62,10 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(String $id)
     {
-        //
+        $Productos = Producto::find($id);
+        return view(('edit'),compact('Productos'));
     }
 
     /**
@@ -77,17 +77,24 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $Productos = Producto::find($id);
+        $Productos -> Nombre = $request->input('Nombre');
+        $Productos -> Precio = $request->input('Precio');
+        $Productos -> Cantidadl = $request->input('Cantidadl');
+        $Productos -> save();
 
+        return  redirect(route('productos.index'));
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
-        //
+        $Productos = Producto::find($id);
+        $Productos->delete();
+        return redirect(route('productos.index'));
     }
 }

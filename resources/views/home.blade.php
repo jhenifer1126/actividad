@@ -13,23 +13,22 @@
       </tr>
     </thead>
     <tbody>
-    @foreach ($Productos as $producto)
-        <tr>
-          <td>{{$producto->Id}}</td>
-          <td>{{$producto->Nombre}}</td>
-          <td>{{$producto->Cantidad}}</td>
-          <td>{{$producto->Precio}}</td>
-          <td>
-            <form action="{{route('productos.destroy', $producto->id)}}" method="POST">
-              @csrf
-              @method('DELETE')
-            <a href="{{route('productos.edit',$producto->id)}}" class="btn btn-primary btn-sm mr-3">EDITAR</a>
-            <button type="submit" class="btn btn-danger btn-sm">ELIMINAR</button>
+      @foreach ($Productos as $Producto)
+      <tr>
+        <td>{{$Producto->Id}}</td>
+        <td>{{$Producto->Nombre}}</td>
+        <td>{{$Producto->Cantidadl}}</td>
+        <td>{{$Producto->Precio}}</td>
+        <td>
+            <form action="{{route('productos.destroy',$Producto->Id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+              <a href="{{route('productos.edit', $Producto->Id)}}" class="btn btn-warning btn-sm mr-3">EDITAR</a>
+              <button type="submit" class="btn btn-danger btn-sm">ELIMINAR</button>
             </form>
           </td>
-        </tr>
-        @endforeach
-        
-      </tbody>
+      </tr> 
+      @endforeach
+     </tbody>
   </table>
 @endsection
