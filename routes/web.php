@@ -19,6 +19,6 @@ Route::get('vista',[Controller::class,'Tercera']);
 
 
 Auth::routes();
-Route::resource('productos','App\Http\Controllers\ProductoController')->names('productos');
+Route::resource('productos',ProductoController::class)->names('productos');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

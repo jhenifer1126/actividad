@@ -1,34 +1,25 @@
-@extends('layouts.plantilla')
+@extends('layouts.app')
+@extends('plantilla')
 
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
-<a href="{{route('productos.create')}}" class="btn btn-primary">crear producto</a>
-<table class="table table-dark">
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Precio</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($Productos as $Producto)
-      <tr>
-        <td>{{$Producto->Id}}</td>
-        <td>{{$Producto->Nombre}}</td>
-        <td>{{$Producto->Cantidadl}}</td>
-        <td>{{$Producto->Precio}}</td>
-        <td>
-            <form action="{{route('productos.destroy',$Producto->Id)}}" method="POST">
-                @csrf
-                @method('DELETE')
-              <a href="{{route('productos.edit', $Producto->Id)}}" class="btn btn-warning btn-sm mr-3">EDITAR</a>
-              <button type="submit" class="btn btn-danger btn-sm">ELIMINAR</button>
-            </form>
-          </td>
-      </tr> 
-      @endforeach
-     </tbody>
-  </table>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
+
