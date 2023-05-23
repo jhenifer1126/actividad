@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/',[App\Http\Controllers\Controller::class,'Bienvenidos'])->name('ruta');
-Route::get('vistas',[Controller::class,'Holi']);
-Route::get('vista',[Controller::class,'Tercera']);
 
 
 Auth::routes();
-Route::resource('productos',ProductoController::class)->names('productos');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/contacto', [App\Http\Controllers\HomeController::class, 'index2'])->name('contacto');
+Route::resource('productos',ProductoController::class)->names('productos');
+
+
 

@@ -1,25 +1,18 @@
-@extends('layouts.app')
-@extends('plantilla')
+@extends('layouts.plantilla')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <h1>BIENVENIDOS A ESTACION ARCOIRIS KIDS</h1>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <img src="{{ asset('img/estacion.jpg') }}" alt="fondo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8" >
 
-                    {{ __('You are logged in!') }}
+
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
-

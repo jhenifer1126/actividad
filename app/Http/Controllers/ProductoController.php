@@ -15,7 +15,7 @@ class ProductoController extends Controller
     public function index()
     {
        $Productos = Producto::all();
-        return view(('home'),compact('Productos'));
+        return view(('productos'),compact('Productos'));
     }
 
     /**
@@ -62,9 +62,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(String $id)
+    public function edit($id)
     {
-        $Productos = Producto::find($id);
+        $Productos = Producto::findOrfail($id);
         return view(('edit'),compact('Productos'));
     }
 
@@ -77,7 +77,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Productos = Producto::find($id);
+        $Productos = Producto::findOrfail($id);
         $Productos -> Nombre = $request->input('Nombre');
         $Productos -> Precio = $request->input('Precio');
         $Productos -> Cantidadl = $request->input('Cantidadl');
@@ -91,7 +91,7 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $Productos = Producto::find($id);
         $Productos->delete();
