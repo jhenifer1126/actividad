@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Producto;
+use App\Models\inflable;
 use Illuminate\Http\Request;
 
-
-class ProductoController extends Controller
+class inflables extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-       $Productos = Producto::all();
-        return view(('produ.productos'),compact('Productos'));
+        $Infla=inflable::all();
+        return view(('cate.tablainfla'),compact('Infla'));
     }
 
     /**
@@ -25,7 +24,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('produ.form');
+        return view ('cate.forminfla');
     }
 
     /**
@@ -36,13 +35,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $Productos = new Producto();
-        $Productos -> Nombre = $request->input('Nombre');
-        $Productos -> Precio = $request->input('Precio');
-        $Productos -> Cantidadl = $request->input('Cantidadl');
-        $Productos -> save();
-
-        return  redirect(route('productos.index'));
+        //
     }
 
     /**
@@ -64,8 +57,7 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        $Productos = Producto::findOrfail($id);
-        return view(('produ.edit'),compact('Productos'));
+        //
     }
 
     /**
@@ -77,14 +69,9 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Productos = Producto::findOrfail($id);
-        $Productos -> Nombre = $request->input('Nombre');
-        $Productos -> Precio = $request->input('Precio');
-        $Productos -> Cantidadl = $request->input('Cantidadl');
-        $Productos -> save();
-
-        return  redirect(route('productos.index'));
+        //
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -93,8 +80,6 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        $Productos = Producto::find($id);
-        $Productos->delete();
-        return redirect(route('productos.index'));
+        //
     }
 }
