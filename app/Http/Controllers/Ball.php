@@ -79,7 +79,7 @@ class Ball extends Controller
         $Ball = bumpersball::findOrfail($id);
         $Ball -> PersonasJuego = $request->input('PersonasJuego');
         $Ball -> ValorAlquiler=$request->input('ValorAlquiler');
-        $$Ball -> save();
+        $Ball -> save();
 
         return  redirect(route('ball.index'));
     }

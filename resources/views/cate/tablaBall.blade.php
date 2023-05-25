@@ -12,11 +12,11 @@
         <tbody>
             @foreach ($Ball as $ball)
                 <tr>
-                    <td>{{ $ball->PerdonasJuego}}</td>
+                    <td>{{ $ball->PersonasJuego}}</td>
                     <td>{{ $ball->ValorAlquiler }}</td>
                     <td>
                         <div class=row>
-                            
+
                             <form action="{{ route('ball.destroy', $ball->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -27,6 +27,7 @@
                         </div>
                     </td>
                 </tr>
+                <a href="{{route('catego')}}" class="btn btn-primary">Volver atras</a>
             @endforeach
         </tbody>
     </table>

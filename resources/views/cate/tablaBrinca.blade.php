@@ -18,7 +18,7 @@
                     <td>{{ $brinca->ValorAlquiler }}</td>
                     <td>
                         <div class=row>
-                           
+
                             <form action="{{ route('brinca.destroy', $brinca->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -29,6 +29,7 @@
                         </div>
                     </td>
                 </tr>
+                <a href="{{route('catego')}}" class="btn btn-primary">Volver atras</a>
             @endforeach
         </tbody>
     </table>

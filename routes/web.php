@@ -25,7 +25,7 @@ Route::get('/',[App\Http\Controllers\Controller::class,'Bienvenidos'])->name('ru
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/contacto', [App\Http\Controllers\HomeController::class, 'index2'])->name('contacto');
-Route::get('categoria',[App\Http\Controllers\Controller::class,'Categorias']);
+Route::get('categoria',[App\Http\Controllers\Controller::class,'Categorias'])->name('catego');
 Route::resource('productos',ProductoController::class)->names('productos');
 Route::resource('Inflables',inflables::class)->names('inflable');
 Route::resource('Brinca-Brinca',Brinca::class)->names('brinca');

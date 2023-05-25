@@ -7,7 +7,7 @@
 
         <div class="mt-3">
             <label for="" class="form-label">PERSONAS JUEGO</label>
-            <input type="number" class="form-control" id="Cantidad" name="Cantidad" required
+            <input type="number" class="form-control" id="PersonasJuego" name="PersonasJuego" required
                 value="{{ $Ball->PersonasJuego }}">
         </div>
         <div class="mt-3">

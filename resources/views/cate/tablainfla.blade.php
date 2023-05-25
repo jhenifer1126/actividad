@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('cont')
-    <a href="{{ route('inflable.create') }}" class="btn btn-primary">crear infable</a>
+    <a href="{{ route('inflable.create') }}" class="btn btn-primary">crear nuevo registro</a>
     <table class="table table-dark">
         <thead>
             <tr>
@@ -20,7 +20,7 @@
                     <td>{{ $infla->ValorAlquiler }}</td>
                     <td>
                         <div class=row>
-                           
+
                             <form action="{{ route('inflable.destroy', $infla->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -31,6 +31,7 @@
                         </div>
                     </td>
                 </tr>
+                <a href="{{route('catego')}}" class="btn btn-primary">Volver atras</a>
             @endforeach
         </tbody>
     </table>

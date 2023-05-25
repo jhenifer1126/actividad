@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('content')
+@section('cont')
     <div class="content-wrapper">
         <div class="d-flex">
             <div class="card mr-5" style="width: 18rem;">
