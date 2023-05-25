@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\inflable;
+use App\Models\infable;
 use Illuminate\Http\Request;
 
 class inflables extends Controller
@@ -13,7 +13,7 @@ class inflables extends Controller
      */
     public function index()
     {
-        $Infla=inflable::all();
+        $Infla=infable::all();
         return view(('cate.tablainfla'),compact('Infla'));
     }
 
@@ -35,7 +35,14 @@ class inflables extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Infla = new infable();
+        $Infla -> Nombre = $request->input('Nombre');
+        $Infla  -> Capacidad = $request->input('Capacidad');
+        $Infla  -> Cantidad = $request->input('Cantidad');
+        $Infla ->  ValorAlquiler=$request->input('ValorAlquiler');
+        $Infla -> save();
+
+        return  redirect(route('inflable.index'));
     }
 
     /**
@@ -57,7 +64,8 @@ class inflables extends Controller
      */
     public function edit($id)
     {
-        //
+        $Infla = infable::findOrfail($id);
+        return view(('cate.editInfla'),compact('Infla'));
     }
 
     /**
@@ -69,7 +77,14 @@ class inflables extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Infla = infable::findOrfail($id);
+        $Infla -> Nombre = $request->input('Nombre');
+        $Infla -> Capacidad = $request->input('Capacidad');
+        $Infla -> Cantidad = $request->input('Cantidad');
+        $Infla -> ValorAlquiler=$request->input('ValorAlquiler');
+        $$Infla -> save();
+
+        return  redirect(route('inflable.index'));
     }
 
     /**
@@ -80,6 +95,8 @@ class inflables extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Infla = infable::find($id);
+        $Infla->delete();
+        return redirect(route('inflable.index'));
     }
 }

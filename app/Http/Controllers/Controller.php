@@ -25,4 +25,8 @@ class Controller extends BaseController
         $tres='volver al inicio';
         return view('vistas.create', compact('tres'));
     }
+
+    public function  Categorias(){
+        return view('cate.catego');
+    }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\bumpersball;
 class Ball extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class Ball extends Controller
      */
     public function index()
     {
-        //
+        $Ball=bumpersball::all();
+        return view(('cate.tablaBall'),compact('Ball'));
     }
 
     /**
@@ -24,7 +25,7 @@ class Ball extends Controller
      */
     public function create()
     {
-        //
+        return view('cate.formBall');
     }
 
     /**
@@ -35,7 +36,12 @@ class Ball extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Ball = new bumpersball();
+        $Ball  -> PersonasJuego = $request->input('PersonasJuego');
+        $Ball ->  ValorAlquiler=$request->input('ValorAlquiler');
+        $Ball -> save();
+
+        return  redirect(route('ball.index'));
     }
 
     /**
@@ -57,7 +63,8 @@ class Ball extends Controller
      */
     public function edit($id)
     {
-        //
+        $Ball = bumpersball::findOrfail($id);
+        return view(('cate.editBall'),compact('Ball'));
     }
 
     /**
@@ -69,7 +76,12 @@ class Ball extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Ball = bumpersball::findOrfail($id);
+        $Ball -> PersonasJuego = $request->input('PersonasJuego');
+        $Ball -> ValorAlquiler=$request->input('ValorAlquiler');
+        $$Ball -> save();
+
+        return  redirect(route('ball.index'));
     }
 
     /**
@@ -80,6 +92,8 @@ class Ball extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Ball = bumpersball::find($id);
+        $Ball->delete();
+        return redirect(route('ball.index'));
     }
 }
