@@ -1,6 +1,6 @@
 @extends('layouts.plantilla');
 
-@section('content')
+@section('cont')
     <form action="{{ route('inflable.update', $Infla->id) }}" method="POST">
         @csrf()
         @method('PUT')

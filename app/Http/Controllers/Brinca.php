@@ -39,7 +39,7 @@ class Brinca extends Controller
     {
         $Brinca = new brincabrinca();
         $Brinca  -> Capacidad = $request->input('Capacidad');
-        $Brinca -> Cantidad = $request->inpùt('Cantidad');
+        $Brinca -> Cantidad = $request->input('Cantidad');
         $Brinca ->  ValorAlquiler=$request->input('ValorAlquiler');
         $Brinca -> save();
 
@@ -78,7 +78,7 @@ class Brinca extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Brinca = bumpersball::findOrfail($id);
+        $Brinca = brincabrinca::findOrfail($id);
         $Brinca -> Capacidad = $request->input('Capacidad');
         $Brinca -> Cantidad =$request->input('Cantidad');
         $Brinca -> ValorAlquiler=$request->input('ValorAlquiler');

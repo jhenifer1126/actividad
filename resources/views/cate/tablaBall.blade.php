@@ -1,11 +1,10 @@
 @extends('layouts.plantilla')
 
-@section('content')
+@section('cont')
     <a href="{{ route('ball.create') }}" class="btn btn-primary">crear nuevo registro</a>
     <table class="table table-dark">
         <thead>
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Personas Juego</th>
                 <th scope="col">Valor Alquiler</th>
             </tr>
@@ -17,12 +16,13 @@
                     <td>{{ $ball->ValorAlquiler }}</td>
                     <td>
                         <div class=row>
-                            <a href="{{ route('ball.edit', $Ball->id) }}"
-                                class="btn btn-warning btn-sm mr-3">EDITAR</a>
-                            <form action="{{ route('ball.destroy', $Ball->id) }}" method="POST">
+                            
+                            <form action="{{ route('ball.destroy', $ball->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">ELIMINAR</button>
+                                <a href="{{ route('ball.edit', $ball->id) }}"
+                                class="btn btn-warning btn-sm mr-3">EDITAR</a>
                             </form>
                         </div>
                     </td>

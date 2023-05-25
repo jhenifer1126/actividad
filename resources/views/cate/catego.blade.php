@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('content')
+@section('cont')
 <div class="content-wrapper">
     <h2>Estas son nuestras categorias</h2>
     <div class="d-flex">

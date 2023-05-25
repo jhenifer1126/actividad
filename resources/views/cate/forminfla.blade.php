@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
-@section('content')
-    <form action="{{ route('inflables.store') }}" method="post">
+@section('cont')
+    <form action="{{ route('inflable.store') }}" method="post">
         @csrf
         <div class="mt-2">
             <label for="exampleInputEmail1">Nombre</label>

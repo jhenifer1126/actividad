@@ -1,11 +1,10 @@
 @extends('layouts.plantilla')
 
-@section('content')
+@section('cont')
     <a href="{{ route('brinca.create') }}" class="btn btn-primary">crear nuevo registro</a>
     <table class="table table-dark">
         <thead>
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Capacidad</th>
                 <th scope="col">Cantidad</th>
                 <th scope="col">Valor Alquiler</th>
@@ -19,12 +18,13 @@
                     <td>{{ $brinca->ValorAlquiler }}</td>
                     <td>
                         <div class=row>
-                            <a href="{{ route('brinca.edit', $Brinca->id) }}"
-                                class="btn btn-warning btn-sm mr-3">EDITAR</a>
-                            <form action="{{ route('brinca.destroy', $Brinca->id) }}" method="POST">
+                           
+                            <form action="{{ route('brinca.destroy', $brinca->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">ELIMINAR</button>
+                                <a href="{{ route('brinca.edit', $brinca->id) }}"
+                                class="btn btn-warning btn-sm mr-3">EDITAR</a>
                             </form>
                         </div>
                     </td>

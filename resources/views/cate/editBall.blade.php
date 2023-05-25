@@ -1,6 +1,6 @@
 @extends('layouts.plantilla');
 
-@section('content')
+@section('cont')
     <form action="{{ route('ball.update', $Ball->id) }}" method="POST">
         @csrf()
         @method('PUT')

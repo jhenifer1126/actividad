@@ -169,12 +169,19 @@
         </nav>
         <!-- /.navbar -->
 
+        <div class="content-wrapper">
+
+
+
+        
         <!-- Main Sidebar Container -->
         @include('menu')
 
         <!-- Content Wrapper. Contains page content -->
 
-        @yield('content')
+        @yield('cont')
+
+        </div>
 
         <!-- Main Footer -->
         <footer class="main-footer">
@@ -209,3 +216,4 @@
 </body>
 
 </html>
+

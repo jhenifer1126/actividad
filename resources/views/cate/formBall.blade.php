@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('content')
+@section('cont')
     <form action="{{ route('ball.store') }}" method="post">
         @csrf
         <div class="mt-2">

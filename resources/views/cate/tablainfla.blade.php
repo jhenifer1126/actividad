@@ -1,11 +1,10 @@
 @extends('layouts.plantilla')
 
-@section('content')
+@section('cont')
     <a href="{{ route('inflable.create') }}" class="btn btn-primary">crear infable</a>
     <table class="table table-dark">
         <thead>
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Capacidad</th>
                 <th scope="col">Cantidad</th>
@@ -21,12 +20,13 @@
                     <td>{{ $infla->ValorAlquiler }}</td>
                     <td>
                         <div class=row>
-                            <a href="{{ route('inflable.edit', $Infla->id) }}"
-                                class="btn btn-warning btn-sm mr-3">EDITAR</a>
-                            <form action="{{ route('inflable.destroy', $Infla->id) }}" method="POST">
+                           
+                            <form action="{{ route('inflable.destroy', $infla->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">ELIMINAR</button>
+                                <a href="{{ route('inflable.edit', $infla->id) }}"
+                                class="btn btn-warning btn-sm mr-3">EDITAR</a>
                             </form>
                         </div>
                     </td>

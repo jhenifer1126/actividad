@@ -82,7 +82,7 @@ class inflables extends Controller
         $Infla -> Capacidad = $request->input('Capacidad');
         $Infla -> Cantidad = $request->input('Cantidad');
         $Infla -> ValorAlquiler=$request->input('ValorAlquiler');
-        $$Infla -> save();
+        $Infla -> save();
 
         return  redirect(route('inflable.index'));
     }
