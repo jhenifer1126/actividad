@@ -26,7 +26,11 @@
        </div>
        <div>
         <label for="" class="form-label">SUBCATEGORIAS</label>
-        <select class="form-control" id="subcategoria" name="subcategoria">
+        <select onchange="opciones()" class="form-control" id="subcategoria" name="subcategoria">
+            <option disabled selected>selecciona una subcategoria</option>
+            @foreach ($subcategorias as $subcategoria )
+                <option value="{{$subcategoria->id}}"required>{{$subcategoria->nombre}}</option>
+            @endforeach
         </select>
        </div>
         <div class="mt-4">
@@ -39,13 +43,12 @@
         var opcion1 = document.getElementById('categoria');
         var opcion2 = document.getElementById('subcategoria');
         var valor = opcion1.value;
-
-        opcion2.innerHTML="";
+         opcion2.innerHTML="";
 
         @foreach ($categorias as $categoria )
-            if (valor==="{{categoria->id}}") {
+            if (valor==="{{$categoria->id}}") {
                 @foreach ($subcategorias as $subcategoria )
-                    if ("{{categoria->id}}"==="{{subcategoria->categoria_id}}") {
+                    if ("{{$categoria->id}}"==="{{$subcategoria->categoria_id}}") {
                         opcion2.add(new Option("$subcategoria->nombre","$subcategoria->id"))
                     }
                 @endforeach

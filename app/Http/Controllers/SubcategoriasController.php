@@ -48,7 +48,7 @@ class SubcategoriasController extends Controller
         $subcategorias->categorias_id = $request->input('categoria');
         $subcategorias->save();
 
-        return redirect(route('subcategorias.index'));
+        return redirect(route('subcategoria.index'));
     }
 
     /**
