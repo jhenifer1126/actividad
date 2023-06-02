@@ -4,10 +4,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\inflables;
-use App\Http\Controllers\Brinca;
-use App\Http\Controllers\Ball;
-
+use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\SubcategoriasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +23,8 @@ Route::get('/',[App\Http\Controllers\Controller::class,'Bienvenidos'])->name('ru
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/contacto', [App\Http\Controllers\HomeController::class, 'index2'])->name('contacto');
-Route::get('categoria',[App\Http\Controllers\Controller::class,'Categorias'])->name('catego');
 Route::resource('productos',ProductoController::class)->names('productos');
-Route::resource('Inflables',inflables::class)->names('inflable');
-Route::resource('Brinca-Brinca',Brinca::class)->names('brinca');
-Route::resource('Bumper-Ball',Ball::class)->names('ball');
+Route::resource('categorias',CategoriasController::class)->names('categoria');
+Route::resource('subcategorias',SubcategoriasController::class)->names('subcategoria');
 
 

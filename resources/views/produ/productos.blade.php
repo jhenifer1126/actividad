@@ -8,6 +8,8 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Cantidad</th>
                 <th scope="col">Precio</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Subcategoria</th>
             </tr>
         </thead>
         <tbody>
@@ -16,9 +18,11 @@
                     <td>{{ $Producto->Nombre }}</td>
                     <td>{{ $Producto->Cantidadl }}</td>
                     <td>{{ $Producto->Precio }}</td>
+                    <td>{{$Producto->cnombre}}</td>
+                    <td>{{$Producto->subnombre}}</td>
                     <td>
                         <div class=row>
-                            
+
                             <form action="{{ route('productos.destroy', $Producto->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')

@@ -51,9 +51,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('categoria')}}" class="nav-link">
+                            <a href="{{route('categoria.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>categorias</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('subcategoria.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>subcategorias</p>
                             </a>
                         </li>
                     </ul>

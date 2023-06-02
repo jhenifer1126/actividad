@@ -1,33 +1,33 @@
-@extends('layouts.plantilla')
+@extends('layouts.plantilla');
 
 @section('cont')
-    <a href="{{ route('ball.create') }}" class="btn btn-primary">crear nuevo registro</a>
+
+<a href="{{ route('categoria.create') }}" class="btn btn-primary">crear categoria</a>
     <table class="table table-dark">
         <thead>
             <tr>
-                <th scope="col">Personas Juego</th>
-                <th scope="col">Valor Alquiler</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($Ball as $ball)
+            @foreach ($categorias as $categoria).
                 <tr>
-                    <td>{{ $ball->PersonasJuego}}</td>
-                    <td>{{ $ball->ValorAlquiler }}</td>
+                    <td>{{ $categoria->nombre }}</td>
+                    <td>{{ $categoria->descripcion }}</td>
                     <td>
                         <div class=row>
 
-                            <form action="{{ route('ball.destroy', $ball->id) }}" method="POST">
+                            <form action="{{ route('categoria.destroy', $categoria->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">ELIMINAR</button>
-                                <a href="{{ route('ball.edit', $ball->id) }}"
+                                <a href="{{ route('categoria.edit', $categoria->id) }}"
                                 class="btn btn-warning btn-sm mr-3">EDITAR</a>
                             </form>
                         </div>
                     </td>
                 </tr>
-                <a href="{{route('catego')}}" class="btn btn-primary">Volver atras</a>
             @endforeach
         </tbody>
     </table>

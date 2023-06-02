@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\bumpersball;
-class Ball extends Controller
+use App\Models\Categoria;
+
+class CategoriasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class Ball extends Controller
      */
     public function index()
     {
-        $Ball=bumpersball::all();
-        return view(('cate.tablaBall'),compact('Ball'));
+        $categorias=Categoria::where('estado',1)->get();
+        return view('categorias.catego',compact('categorias'));
     }
 
     /**
@@ -25,7 +26,7 @@ class Ball extends Controller
      */
     public function create()
     {
-        return view('cate.formBall');
+        return view('categorias.form');
     }
 
     /**
@@ -36,12 +37,13 @@ class Ball extends Controller
      */
     public function store(Request $request)
     {
-        $Ball = new bumpersball();
-        $Ball  -> PersonasJuego = $request->input('PersonasJuego');
-        $Ball ->  ValorAlquiler=$request->input('ValorAlquiler');
-        $Ball -> save();
+        $categorias=new Categoria();
+        $categorias->nombre=$request->input('nombre');
+        $categorias->descripcion=$request->input('descripcion');
+        $categorias->estado=1;
+        $categorias->save();
 
-        return  redirect(route('ball.index'));
+        return  redirect(route('categoria.index'));
     }
 
     /**
@@ -63,8 +65,8 @@ class Ball extends Controller
      */
     public function edit($id)
     {
-        $Ball = bumpersball::findOrfail($id);
-        return view(('cate.editBall'),compact('Ball'));
+        $categorias=Categoria::findOrfail($id);
+        return view('categorias.edit',compact('categorias'));
     }
 
     /**
@@ -76,12 +78,13 @@ class Ball extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Ball = bumpersball::findOrfail($id);
-        $Ball -> PersonasJuego = $request->input('PersonasJuego');
-        $Ball -> ValorAlquiler=$request->input('ValorAlquiler');
-        $Ball -> save();
+        $categorias=Categoria::findOrfail($id);
+        $categorias->nombre=$request->input('nombre');
+        $categorias->descripcion=$request->input('descripcion');
+        $categorias->estado=1;
+        $categorias->save();
 
-        return  redirect(route('ball.index'));
+        return  redirect(route('categoria.index'));
     }
 
     /**
@@ -92,8 +95,9 @@ class Ball extends Controller
      */
     public function destroy($id)
     {
-        $Ball = bumpersball::find($id);
-        $Ball->delete();
-        return redirect(route('ball.index'));
+        $categorias =Categoria::find($id);
+        $categorias->estado=0;
+        $categorias->save();
+        return redirect(route('categoria.index'));
     }
 }
