@@ -16,44 +16,49 @@
             <input type="number" class="form-control" name="Cantidadl" placeholder="cantidad del producto">
         </div>
         <div class="mt-2">
-            <label class="form-label">CATEGORIAS</label>
-        <select onchange="opciones()" class="form-control" name="categoria" id="categoria" required>
-            <option disabled selected>selecciona una categoria</option>
-            @foreach ($categorias as $categoria )
-                <option value="{{$categoria->id}}"required>{{$categoria->nombre}}</option>
+            <label for="" class="form-label">CATEGORIA</label>
+            <select onchange="opciones()" class="form-control" id="categoria" name="categoria" required>
+              <option value="" disabled selected>Selecciona una categoría</option>
+            @foreach ($categorias as $categoria)
+                <option value="{{$categoria->id}}" required>{{$categoria->nombre}}</option>
             @endforeach
-        </select>
-       </div>
-       <div>
-        <label for="" class="form-label">SUBCATEGORIAS</label>
-        <select onchange="opciones()" class="form-control" id="subcategoria" name="subcategoria">
-            <option disabled selected>selecciona una subcategoria</option>
-            @foreach ($subcategorias as $subcategoria )
-                <option value="{{$subcategoria->id}}"required>{{$subcategoria->nombre}}</option>
-            @endforeach
-        </select>
-       </div>
-        <div class="mt-4">
-            <button type="submit" class="btn btn-primary">enviar</button>
-
+            </select>
         </div>
-    </form>
-    <Script>
-    function opciones(){
-        var opcion1 = document.getElementById('categoria');
-        var opcion2 = document.getElementById('subcategoria');
-        var valor = opcion1.value;
-         opcion2.innerHTML="";
 
-        @foreach ($categorias as $categoria )
-            if (valor==="{{$categoria->id}}") {
-                @foreach ($subcategorias as $subcategoria )
-                    if ("{{$categoria->id}}"==="{{$subcategoria->categoria_id}}") {
-                        opcion2.add(new Option("$subcategoria->nombre","$subcategoria->id"))
-                    }
+        <div>
+            <label for="" class="form-label">Subcategoria</label>
+            <select class="form-control" id="subcategoria" name="subcategoria">
+
+            </select>
+        </div>
+
+
+        <div class="mt-4">
+            <button type="submit" class="btn btn-success mr -4 ">GUARDAR</button>
+            <a href="{{route('productos.index')}}" class="btn btn-danger">CANCELAR</a>
+        </div>
+
+    </form>
+
+    <script>
+        function opciones(){
+            var option1 = document.getElementById("categoria");
+            var option2 = document.getElementById("subcategoria");
+
+            var valor =option1.value;
+
+            option2.innerHTML = "";
+
+            @foreach ($categorias as $categoria)
+             if (valor === "{{$categoria->id}}"){
+                @foreach ($subcategorias as $subcategoria)
+                   if("{{$categoria->id }}" === "{{$subcategoria->categorias_id }}"){
+                    option2.add(new Option("{{$subcategoria->nombre}}","{{$subcategoria->id}}"));
+                }
                 @endforeach
-            }
-        @endforeach
-    }
-    </Script>
+             }
+
+            @endforeach
+        }
+    </script>
 @endsection
