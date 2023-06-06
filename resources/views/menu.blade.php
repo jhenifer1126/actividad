@@ -44,12 +44,14 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        @can('admin')
                         <li class="nav-item">
                             <a href="{{ route('productos.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Productos</p>
                             </a>
                         </li>
+                        @endcan
                         <li class="nav-item">
                             <a href="{{route('categoria.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
