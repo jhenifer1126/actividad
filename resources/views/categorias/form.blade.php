@@ -13,6 +13,7 @@
         </div>
         <div class="mt-4">
             <button type="submit" class="btn btn-primary">enviar</button>
+            <a href="{{route('categoria.index')}}" class="btn btn-danger">CANCELAR</a>
         </div>
     </form>
 @endsection
