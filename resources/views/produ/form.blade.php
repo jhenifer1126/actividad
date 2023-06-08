@@ -5,15 +5,15 @@
         @csrf
         <div class="mt-2">
             <label for="exampleInputEmail1">Nombre</label>
-            <input type="text" class="form-control" name="Nombre" placeholder="nombre del producto">
+            <input type="text" class="form-control" name="nombre" placeholder="nombre del producto">
         </div>
         <div class="mt-2">
             <label for="exampleInputPassword1">Precio</label>
-            <input type="number" class="form-control" name="Precio" placeholder="Precio del producto">
+            <input type="number" class="form-control" name="precio" placeholder="Precio del producto">
         </div>
         <div class="mt-2">
             <label for="exampleInputPassword1">Cantidad</label>
-            <input type="number" class="form-control" name="Cantidadl" placeholder="cantidad del producto">
+            <input type="number" class="form-control" name="cantidadl" placeholder="cantidad del producto">
         </div>
         <div class="mt-2">
             <label for="" class="form-label">CATEGORIA</label>
@@ -61,3 +61,4 @@
         }
     </script>
 @endsection
+

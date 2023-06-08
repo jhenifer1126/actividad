@@ -14,7 +14,7 @@
                 <img src="{{ asset('img/foto.PNG') }}" class="img-circle elevation-2" alt="img">
             </div>
             <div class="info">
-                <a href="#" class="d-block"> Jennifer Plata</a>
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
             </div>
 
         </div>
@@ -44,7 +44,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        @can('admin')
+                        @can('productos.index')
                         <li class="nav-item">
                             <a href="{{ route('productos.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

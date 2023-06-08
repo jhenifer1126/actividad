@@ -6,7 +6,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\SubcategoriasController;
-
+use App\Http\Controllers\UsuariosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,5 +26,6 @@ Route::get('/contacto', [App\Http\Controllers\HomeController::class, 'index2'])-
 Route::resource('productos',ProductoController::class)->names('productos');
 Route::resource('categorias',CategoriasController::class)->names('categoria');
 Route::resource('subcategorias',SubcategoriasController::class)->names('subcategoria');
+Route::resource('user',UsuariosController::class)->names('user');
 
 

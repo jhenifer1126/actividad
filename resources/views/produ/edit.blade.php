@@ -6,18 +6,18 @@
         @method('PUT')
         <div class="mb-3 mt-3">
             <label for="" class="form-label">NOMBRE</label>
-            <input type="text" class="form-control" id="Nombre" name="Nombre" required
-                value="{{ $Productos->Nombre }}">
+            <input type="text" class="form-control" id="nombre" name="nombre" required
+                value="{{ $Productos->nombre }}">
         </div>
         <div class="mt-3">
             <label for="" class="form-label">CANTIDAD</label>
-            <input type="number" class="form-control" id="Cantidadl" name="Cantidadl" required
-                value="{{ $Productos->Cantidadl }}">
+            <input type="number" class="form-control" id="cantidadl" name="cantidadl" required
+                value="{{ $Productos->cantidadl }}">
         </div>
         <div class="mt-3">
             <label for="" class="form-label">PRECIO</label>
-            <input type="number" class="form-control" id="Precio" name="Precio" required
-                value="{{ $Productos->Precio }}">
+            <input type="number" class="form-control" id="precio" name="precio" required
+                value="{{ $Productos->precio }}">
         </div>
         <div class="mt-2">
             <label class="form-label">CATEGORIAS</label>

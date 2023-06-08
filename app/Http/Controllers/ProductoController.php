@@ -45,9 +45,9 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $Productos = new Producto();
-        $Productos -> Nombre = $request->input('Nombre');
-        $Productos -> Precio = $request->input('Precio');
-        $Productos -> Cantidadl = $request->input('Cantidadl');
+        $Productos -> nombre = $request->input('nombre');
+        $Productos -> precio = $request->input('precio');
+        $Productos -> cantidadl = $request->input('cantidadl');
         $Productos-> estado=1;
         $Productos-> categorias_id=$request->input('categoria');
         $Productos-> subcategorias_id =$request->input('subcategoria');
@@ -91,9 +91,9 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         $Productos = Producto::findOrfail($id);
-        $Productos -> Nombre = $request->input('Nombre');
-        $Productos -> Precio = $request->input('Precio');
-        $Productos -> Cantidadl = $request->input('Cantidadl');
+        $Productos -> nombre = $request->input('nombre');
+        $Productos -> precio = $request->input('precio');
+        $Productos -> cantidadl = $request->input('cantidadl');
         $Productos-> categorias_id=$request->input('categoria');
         $Productos-> subcategorias_id =$request->input('subcategoria');
         $Productos -> save();
@@ -111,6 +111,6 @@ class ProductoController extends Controller
         $Productos = Producto::find($id);
         $Productos->estado=0;
         $Productos->save();
-        return redirect(route('productos.index'));
+        return $listo="ok";
     }
 }
