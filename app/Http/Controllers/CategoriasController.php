@@ -8,11 +8,18 @@ use App\Models\Categoria;
 
 class CategoriasController extends Controller
 {
+    public function _construct(){
+
+    $this->middleware('can:categoria.index')->only('index');
+    $this->middleware('can:categoria.edit')->only('edit','update');
+    $this->middleware('can:categoria.create')->only('create','store');
+    $this->middleware('can:categoria.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+*/
     public function index()
     {
         $categorias=Categoria::where('estado',1)->get();

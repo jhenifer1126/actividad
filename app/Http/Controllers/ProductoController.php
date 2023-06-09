@@ -10,11 +10,22 @@ use Spatie\LaravelIgnition\Solutions\SolutionProviders\RunningLaravelDuskInProdu
 
 class ProductoController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('can:productos.index')->only('index');
+        $this->middleware('can:productos.edit')->only('edit','update');
+        $this->middleware('can:productos.create')->only('create','store');
+        $this->middleware('can:productos.destroy')->only('destroy');
+        
+
+    }
+
     public function index()
     {
        $Productos = Producto::select('c.nombre as cnombre','sub.nombre as subnombre','productos.*')
@@ -75,11 +86,33 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        $categorias = Categoria::where('categoria.estado',1)->get();
+        $categorias = Categoria::where('categorias.estado',1)->get();
         $subcategorias=subcategoria::where('subcategorias.estado',1)->get();
         $Productos = Producto::findOrfail($id);
         return view(('produ.edit'),compact('Productos','categorias','subcategorias'));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Update the specified resource in storage.

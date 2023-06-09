@@ -6,12 +6,12 @@
         @method('PUT')
         <div class="mb-3 mt-3">
             <label for="" class="form-label">NOMBRE</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required
-                value="{{ $user->nombre }}">
+            <input type="text" class="form-control" id="name" name="name" required
+                value="{{ $user->name }}">
         </div>
         <div class="mt-3">
             <label for="" class="form-label">CORREO</label>
-            <input type="number" class="form-control" id="cantidadl" name="cantidadl" required
+            <input type="text" class="form-control" id="email" name="email" required
                 value="{{ $user->email }}">
         </div>
         <div class="mt-2">
@@ -23,6 +23,9 @@
             @endforeach
         </select>
        </div>
-
+       <div class="mt-5">
+        <button type="submit" class="btn btn-success mr -4 ">Guardar</button>
+        <a href="{{ route('user.index') }}" class="btn btn-danger">Cancelar</a>
+    </div>
     </form>
 @endsection

@@ -18,8 +18,9 @@
                     <td>{{ $user->roles }}</td>
                     <td>
                         <div class=row>
-
+@can('user.edit')
                         <a href="{{ route('user.edit', $user->id) }}"class="btn btn-warning btn-sm mr-3">EDITAR</a>
+                        @endcan
                         </div>
                     </td>
                 </tr>

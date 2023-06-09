@@ -9,6 +9,13 @@ use App\Models\Categoria;
 
 class SubcategoriasController extends Controller
 {
+    public function _construct(){
+
+        $this->middleware('can:subcategoria.index')->only('index');
+        $this->middleware('can:subcategoria.edit')->only('edit','update');
+        $this->middleware('can:subcategoria.create')->only('create','store');
+        $this->middleware('can:subcategoria.destroy')->only('destroy');
+        }
     /**
      * Display a listing of the resource.
      *

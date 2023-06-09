@@ -52,18 +52,22 @@
                             </a>
                         </li>
                         @endcan
+                        @can('categoria.index')
                         <li class="nav-item">
                             <a href="{{route('categoria.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>categorias</p>
                             </a>
                         </li>
+                        @endcan
+                        @can('subcategoria.index')
                         <li class="nav-item">
                             <a href="{{route('subcategoria.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>subcategorias</p>
                             </a>
                         </li>
+                        @endcan
                     </ul>
                 </li>
         </nav>
