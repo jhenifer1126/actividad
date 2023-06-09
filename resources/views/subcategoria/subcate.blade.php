@@ -23,12 +23,13 @@
                     <td>
                         <div class=row>
                             @can('subcategoria.destroy')
-                                <button type="submit" class="btn btn-danger btn-sm">ELIMINAR</button>
-                                @endcan
-                                @can('subcategoria.edit')
+                                <input type="hidden" value="{{ $subcategoria->id }}">
+                                <span class="btn btn-danger btn-sm eliminar">ELIMINAR</span>
+                            @endcan
+                            @can('subcategoria.edit')
                                 <a href="{{ route('subcategoria.edit', $subcategoria->id) }}"
                                     class="btn btn-warning btn-sm mr-3">EDITAR</a>
-                                @endcan
+                            @endcan
 
 
                         </div>

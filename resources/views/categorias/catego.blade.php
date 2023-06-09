@@ -1,9 +1,9 @@
 @extends('layouts.plantilla');
 
 @section('cont')
-@can('categoria.create')
-<a href="{{ route('categoria.create') }}" class="btn btn-primary">crear categoria</a>
-@endcan
+    @can('categoria.create')
+        <a href="{{ route('categoria.create') }}" class="btn btn-primary">crear categoria</a>
+    @endcan
 
     <table id="Table" class="table table-dark">
         <thead>
@@ -14,20 +14,21 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($categorias as $categoria).
+            @foreach ($categorias as $categoria)
+                .
                 <tr>
                     <td>{{ $categoria->nombre }}</td>
                     <td>{{ $categoria->descripcion }}</td>
                     <td>
                         <div class=row>
-
                             @can('categoria.destroy')
-                            <button type="submit" class="btn btn-danger btn-sm">ELIMINAR</button>
+                                <input type="hidden" value="{{ $categoria->id }}">
+                                <span class="btn btn-danger btn-sm eliminar">ELIMINAR</span>
                             @endcan
-                                @can('categoria.edit')
+                            @can('categoria.edit')
                                 <a href="{{ route('categoria.edit', $categoria->id) }}"
                                     class="btn btn-warning btn-sm mr-3">EDITAR</a>
-                                @endcan
+                            @endcan
 
 
                         </div>
