@@ -21,7 +21,7 @@
         </div>
         <div class="mt-4">
             <button type="submit" class="btn btn-primary">enviar</button>
-            <a href="{{route('productos.index')}}" class="btn btn-danger">CANCELAR</a>
+            <a href="{{route('subcategoria.index')}}" class="btn btn-danger">CANCELAR</a>
         </div>
     </form>
 @endsection

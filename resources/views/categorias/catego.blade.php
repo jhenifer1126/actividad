@@ -62,7 +62,7 @@
 
                     $.ajax({
                         type: 'DELETE',
-                        url: "{{ route('productos.destroy', ':id') }}".replace(':id', id),
+                        url: "{{ route('categoria.destroy', ':id') }}".replace(':id', id),
                         data: {
                             _token: '{{ csrf_token() }}'
                         },
