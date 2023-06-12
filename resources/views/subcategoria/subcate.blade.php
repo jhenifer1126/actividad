@@ -39,6 +39,7 @@
         </tbody>
     </table>
 @endsection
+
 @section('js')
     <script>
         $('.eliminar').click(function() {

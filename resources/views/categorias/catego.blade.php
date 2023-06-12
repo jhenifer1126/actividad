@@ -15,7 +15,6 @@
         </thead>
         <tbody>
             @foreach ($categorias as $categoria)
-                .
                 <tr>
                     <td>{{ $categoria->nombre }}</td>
                     <td>{{ $categoria->descripcion }}</td>
