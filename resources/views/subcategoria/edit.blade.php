@@ -17,8 +17,8 @@
     <div class="mt-3">
         <label for="" class="form-label">Categoria</label>
         <select class="form-control" name="categoria">
-            @foreach ($categorias as $categoria )
-                <option value="{{$Scategorias->id}}">{{$categorias->nombre}}</option>
+            @foreach ($categoria as $catego )
+                <option value="{{$catego->id}}">{{$catego->nombre}}</option>
             @endforeach
         </select>
     </div>
