@@ -27,7 +27,7 @@
                         <div class=row>
 
                             @can('productos.destroy')
-                                <input type="hidden" value="{{ $Producto->id }}">
+                                <input type="hidden" value="{{ $Producto->id }}"></input>
                                 <span class="btn btn-danger btn-sm eliminar">ELIMINAR</span>
                             @endcan
                             @can('productos.edit')

@@ -105,6 +105,6 @@ class CategoriasController extends Controller
         $categorias =Categoria::find($id);
         $categorias->estado=0;
         $categorias->save();
-        return redirect(route('categoria.index'));
+        return $listo="ok";
     }
 }

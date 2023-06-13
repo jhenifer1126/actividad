@@ -21,8 +21,8 @@
                     <td>
                         <div class=row>
                             @can('categoria.destroy')
-                                <input type="hidden" value="{{ $categoria->id }}">
-                                <span class="btn btn-danger btn-sm eliminar">ELIMINAR</span>
+                                <input type="hidden" value="{{$categoria->id }}"></input>
+                                <span class="btn btn-danger btn-sm  eliminar">ELIMINAR</span>
                             @endcan
                             @can('categoria.edit')
                                 <a href="{{ route('categoria.edit', $categoria->id) }}"
