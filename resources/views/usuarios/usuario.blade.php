@@ -1,14 +1,17 @@
 @extends('layouts.plantilla')
 
 @section('cont')
-    <table id="Table" class="table table-dark">
+<div class="container">
+    <table id="Table" class="table  table-dark">
         <thead>
-            <tr>
+            
+                 <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Roles</th>
                 <th scope="col"></th>
-            </tr>
+                </tr>
+           
         </thead>
         <tbody>
             @foreach ($users as $user)
@@ -18,7 +21,7 @@
                     <td>{{ $user->roles }}</td>
                     <td>
                         <div class=row>
-@can('user.edit')
+                        @can('user.edit')
                         <a href="{{ route('user.edit', $user->id) }}"class="btn btn-warning btn-sm mr-3">EDITAR</a>
                         @endcan
                         </div>
@@ -27,6 +30,7 @@
             @endforeach
         </tbody>
     </table>
+</div>
 @endsection
 @section('js')
 <script>

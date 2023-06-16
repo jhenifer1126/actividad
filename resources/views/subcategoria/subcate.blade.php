@@ -1,10 +1,11 @@
 @extends('layouts.plantilla');
 
 @section('cont')
+<div class="container">
     @can('subcategoria.create')
         <a href="{{ route('subcategoria.create') }}" class="btn btn-primary">crear subcategoria</a>
     @endcan
-
+    
     <table id="Table" class="table table-dark">
         <thead>
             <tr>
@@ -38,6 +39,7 @@
             @endforeach
         </tbody>
     </table>
+    </div>
 @endsection
 
 @section('js')
