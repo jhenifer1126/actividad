@@ -12,18 +12,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function Bienvenidos(){
-        $nombri= 'siguiente pagina';
-        return view('welcome',compact('nombri'));
-    }
-
-    public function Holi(){
-        $jenny= 'siguiente pagina';
-        return view('vistas.index',compact('jenny'));
-    }
-
-    public function Tercera(){
-        $tres='volver al inicio';
-        return view('vistas.create', compact('tres'));
+        return view('inicio.welcome');
     }
 
     public function  Categorias(){
