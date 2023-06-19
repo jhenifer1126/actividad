@@ -43,9 +43,6 @@
                     <a href="{{ route('home') }}" class="nav-link">Hogar</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('contacto') }}" class="nav-link">Contactos</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ route('user.index') }}" class="nav-link">usuarios</a>
                 </li>
             </ul>

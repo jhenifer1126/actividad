@@ -22,7 +22,6 @@ Route::get('/',[App\Http\Controllers\Controller::class,'Bienvenidos'])->name('ru
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/contacto', [App\Http\Controllers\HomeController::class, 'index2'])->name('contacto');
 Route::resource('productos',ProductoController::class)->names('productos');
 Route::resource('categorias',CategoriasController::class)->names('categoria');
 Route::resource('subcategorias',SubcategoriasController::class)->names('subcategoria');
