@@ -58,10 +58,10 @@ https://www.tooplate.com/view/2117-infinite-loop
                         @auth
                             <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
                         @else
-                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar seccion</a>
+                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Inicio sesion</a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
+                                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrate</a>
                             @endif
                         @endauth
                     </div>
@@ -219,7 +219,7 @@ https://www.tooplate.com/view/2117-infinite-loop
                                 <figure class="effect-honey tm-gallery-item">
                                     <img src="{{ asset('img/DINO.jpg') }}" alt="Image 4" class="img-fluid">
                                     <figcaption>
-                                        <h2><i>Inflable<span>Dinosaurio</span></i></h2>
+                                        <h2><i><span>Inflable</span><br>Dino</i></h2>
                                     </figcaption>
                                 </figure>
                             </a>
@@ -235,7 +235,7 @@ https://www.tooplate.com/view/2117-infinite-loop
                                 <figure class="effect-honey tm-gallery-item">
                                     <img src="{{ asset('img/tiburon.jpg') }}" alt="Image 6" class="img-fluid">
                                     <figcaption>
-                                        <h2><i>Inflable <span>Tiburon</span></i></h2>
+                                        <h2><i> <span>Inflable</span>Tiburon</i></h2>
                                     </figcaption>
                                 </figure>
                             </a>
