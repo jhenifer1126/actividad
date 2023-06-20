@@ -50,10 +50,19 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         $user = User::findOrfail($id);
-        $user->roles()->sync($request->$role);
+        $user->roles()->sync($request->rol);
+
+        if ($request->hasfile('file')) {
+            $name = $request->file('file')->getClientOriginalName();
+            $destino = "img";
+            $filename = $request->file('file')->move($name,$destino);
+            $user->file = $filename;
+        }
+
+        $user->save();
 
         return redirect(Route('user.index'));
     }

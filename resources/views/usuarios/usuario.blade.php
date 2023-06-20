@@ -9,7 +9,7 @@
                     @foreach ($users as $user)
                     <div class="col-md-4">
                         <div class="card mb-4">
-                            <img src="{{$user->file}}" class="card-img-top" alt="{{ $user->nombre }}">
+                            <img src="{{$user->file}}" class="img-circle elevation-2  mx-auto d-block" alt="{{ $user->nombre }}" width="200px" heigt="200px">
                             <div class="card-body">
                                 <h4 class="card-title">{{ $user->name }}</h4>
                                 <p class="card-text">{{ $user->email }}</p>
@@ -19,6 +19,7 @@
                                 <a href="{{ route('user.edit', $user->id) }}"
                                     class="btn btn-warning btn-sm mr-3">EDITAR</a>
                             @endcan
+
                             </div>
                         </div>
                     </div>
