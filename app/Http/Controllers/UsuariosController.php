@@ -75,6 +75,9 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user =User::find($id);
+        $user->estado=0;
+        $user->save();
+        return $listo="ok";
     }
 }
