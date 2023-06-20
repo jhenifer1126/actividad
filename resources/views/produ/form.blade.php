@@ -34,7 +34,7 @@
 
 
         <div class="mt-4">
-            <button type="submit" class="btn btn-primary">enviar</button>
+            <button type="submit" class="btn btn-success mr -4 ">ENVIAR </button>
             <a href="{{route('productos.index')}}" class="btn btn-danger">CANCELAR</a>
         </div>
     </form>

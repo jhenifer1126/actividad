@@ -24,7 +24,8 @@
             <select onchange="opciones()" class="form-control" id="categoria" name="categoria" required>
               <option value="" disabled selected>Selecciona una categoría</option>
             @foreach ($categorias as $categoria)
-                <option value="{{$categoria->id}}" required>{{$categoria->nombre}}</option>
+                <option value="{{$categoria->id}}" {{ $categoria->id === $Productos->categorias_id ? 'selected' : '' }}>
+                    {{$categoria->nombre}}</option>
             @endforeach
             </select>
         </div>
@@ -32,13 +33,18 @@
         <div>
             <label for="" class="form-label">Subcategoria</label>
             <select class="form-control" id="subcategoria" name="subcategoria">
-
+                @foreach ($subcategorias as $subcategoria)
+                <option value="{{ $subcategoria->id }}"
+                    {{ $subcategoria->id === $Productos->subcategorias_id ? 'selected' : '' }}>
+                    {{ $subcategoria->nombre }}
+                </option>
+            @endforeach
             </select>
         </div>
 
 
         <div class="mt-4">
-            <button type="submit" class="btn btn-primary">enviar</button>
+            <button type="submit" class="btn btn-success mr -4">ENVIAR</button>
             <a href="{{route('productos.index')}}" class="btn btn-danger">CANCELAR</a>
         </div>
     </form>
@@ -53,10 +59,15 @@
             option2.innerHTML = "";
 
             @foreach ($categorias as $categoria)
-             if (valor === "{{$categoria->id}}"){
+             if ("{{$categoria->id}}" === valor ){
                 @foreach ($subcategorias as $subcategoria)
                    if("{{$categoria->id }}" === "{{$subcategoria->categorias_id }}"){
-                    option2.add(new Option("{{$subcategoria->nombre}}","{{$subcategoria->id}}"));
+                    var option3 = document.createElement("option");
+                option3.value = "{{ $subcategoria->id }}";
+                option3.text = "{{ $subcategoria->nombre }}";
+                option3.selected = "{{ $subcategoria->id }}" === "{{ $Productos->subcategorias_id }}";
+                option2.appendChild(option3);
+
                 }
                 @endforeach
              }

@@ -69,7 +69,7 @@ class RegisterController extends Controller
         $name = $data['file']->getClientOriginalName();
         $destino = "img";
         $filename = $data['file']->move($destino, $name);
-        
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
