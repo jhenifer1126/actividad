@@ -11,6 +11,10 @@
             <label for="exampleInputPassword1">Descripcion</label>
             <input type="text" class="form-control" name="descripcion" placeholder="Descripcion de la categoria">
         </div>
+        <div class="mb-3 mt-3">
+            <label class="form-label">Suba la foto de su categoria</label>
+            <input id="file" type="file" class="form-control" name="file" required accept="image/*">
+          </div>
         <div class="mt-4">
             <button type="submit" class="btn btn-primary">enviar</button>
             <a href="{{route('categoria.index')}}" class="btn btn-danger">CANCELAR</a>

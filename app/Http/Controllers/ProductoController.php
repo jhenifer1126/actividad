@@ -10,7 +10,7 @@ use Spatie\LaravelIgnition\Solutions\SolutionProviders\RunningLaravelDuskInProdu
 
 class ProductoController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +22,7 @@ class ProductoController extends Controller
         $this->middleware('can:productos.edit')->only('edit','update');
         $this->middleware('can:productos.create')->only('create','store');
         $this->middleware('can:productos.destroy')->only('destroy');
-        
+
 
     }
 
@@ -55,6 +55,10 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        $name = $request['file']->getClientOriginalName();
+        $destino = "img";
+        $filename = $request['file']->move($destino, $name);
+
         $Productos = new Producto();
         $Productos -> nombre = $request->input('nombre');
         $Productos -> precio = $request->input('precio');
@@ -62,6 +66,7 @@ class ProductoController extends Controller
         $Productos-> estado=1;
         $Productos-> categorias_id=$request->input('categoria');
         $Productos-> subcategorias_id =$request->input('subcategoria');
+        $Productos->file = $filename;
         $Productos -> save();
 
         return  redirect(route('productos.index'));
@@ -109,6 +114,12 @@ class ProductoController extends Controller
         $Productos -> cantidadl = $request->input('cantidadl');
         $Productos-> categorias_id=$request->input('categoria');
         $Productos-> subcategorias_id =$request->input('subcategoria');
+        if ($request->hasFile('file')) {
+            $name = $request->file('file')->getClientOriginalName();
+            $destino = "img";
+            $filename = $request->file('file')->move($destino, $name);
+            $Productos->file = $filename;
+        }
         $Productos -> save();
 
         return  redirect(route('productos.index'));
@@ -124,6 +135,6 @@ class ProductoController extends Controller
         $Productos = Producto::find($id);
         $Productos->estado=0;
         $Productos->save();
-        return $listo="ok";
+        return $listo="listo";
     }
 }

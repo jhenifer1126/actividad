@@ -111,6 +111,6 @@ class SubcategoriasController extends Controller
         $subcategoria =subcategoria::find($id);
         $subcategoria->estado=0;
         $subcategoria->save();
-        return $listo="ok";
+        return $listo="listo";
     }
 }

@@ -12,7 +12,7 @@
                     @foreach ($categorias as $categoria)
                     <div class="col-md-4">
                         <div class="card mb-4">
-                            <img src="{{ $categoria->imagen }}" class="card-img-top" alt="{{ $categoria->nombre }}">
+                            <img src="{{ $categoria->file }}" class="card-img-top" alt="{{ $categoria->nombre }}">
                             <div class="card-body">
                                 <h4 class="card-title">{{ $categoria->nombre }}</h4>
                                 <p class="card-text">{{ $categoria->descripcion }}</p>

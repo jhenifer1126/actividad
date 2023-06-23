@@ -14,6 +14,10 @@
         <input type="text" class="form-control" id="descripcion" name="descripcion" required
             value="{{ $categorias->descripcion }}">
     </div>
+    <div class="mt-3">
+        <label class="form-label">Suba la foto de la categoria</label>
+        <input id="file" type="file" class="form-control" name="file" accept="image/*">
+       </div>
     <div class="mt-5">
         <button type="submit" class="btn btn-success mr -4 ">Guardar</button>
         <a href="{{ route('categoria.index') }}" class="btn btn-danger">Cancelar</a>

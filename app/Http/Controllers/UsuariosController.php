@@ -78,6 +78,6 @@ class UsuariosController extends Controller
         $user =User::find($id);
         $user->estado=0;
         $user->save();
-        return $listo="ok";
+        return $listo="listo";
     }
 }

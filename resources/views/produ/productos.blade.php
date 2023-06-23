@@ -12,7 +12,7 @@
                     @foreach ($Productos as $Producto)
                     <div class="col-md-4">
                         <div class="card mb-4">
-                            <img src="{{ $Producto->imagen }}" class="card-img-top" alt="{{ $Producto->nombre }}">
+                            <img src="{{$Producto->file}}" class="card-img-top mx-auto d-block" alt="{{ $Producto->nombre }}" width="200px" heigt="200px">
                             <div class="card-body">
                                 <h4 class="card-title">{{ $Producto->nombre }}</h4>
                                 <p class="card-text">{{ $Producto->cantidadl }}</p>
