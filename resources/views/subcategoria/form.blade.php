@@ -19,6 +19,10 @@
             @endforeach
         </select>
         </div>
+        <div class="mb-3 mt-3">
+            <label class="form-label">Suba la foto de su subcategoria</label>
+            <input id="file" type="file" class="form-control" name="file" required accept="image/*">
+          </div>
         <div class="mt-4">
             <button type="submit" class="btn btn-primary">enviar</button>
             <a href="{{route('subcategoria.index')}}" class="btn btn-danger">CANCELAR</a>
