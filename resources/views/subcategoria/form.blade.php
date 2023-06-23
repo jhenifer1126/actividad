@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('cont')
-    <form action="{{ route('subcategoria.store') }}" method="post">
+    <form action="{{ route('subcategoria.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mt-2">
             <label for="exampleInputEmail1">Nombre</label>

@@ -48,6 +48,7 @@ class SubcategoriasController extends Controller
      */
     public function store(Request $request)
     {
+        
         $name = $request['file']->getClientOriginalName();
         $destino = "img";
         $filename = $request['file']->move($destino, $name);

@@ -1,7 +1,7 @@
 @extends('layouts.plantilla');
 
 @section('cont')
-<form action="{{ route('subcategoria.update', $subcategoria->id) }}" method="POST">
+<form action="{{ route('subcategoria.update', $subcategoria->id) }}" method="POST" enctype="multipart/form-data">
     @csrf()
     @method('PUT')
     <div class="mb-3 mt-3">
