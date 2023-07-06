@@ -17,9 +17,8 @@
         <div class="mt-2">
             <label class="form-label">ROLES</label>
         <select  class="form-control" name="rol" id="rol" required>
-            <option disabled selected>selecciona un rol</option>
             @foreach ($role as $rol)
-                <option value="{{$rol->id}}"required>{{$rol->name}}</option>
+                <option value="{{$rol->id}}">{{$rol->name}}</option>
             @endforeach
         </select>
        </div>
